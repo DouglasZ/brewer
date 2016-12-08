@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<!-- 
+	Níveis de log:
+	
+	Fatal: Apenas o fatal
+	Error: Apresenta Error e o Fatal
+	Warn : Apresenta Warn, Error e o Fatal
+	Info : Apresenta Info, Warn, Error e o Fatal
+	Debug: Apresenta Debug, Warn, Error e o Fatal
+	Trace: Apresenta Trace, Warn, Error e o Fatal
+	All  : Apresenta todos
+ -->
+<Configuration status="WARN">
+	<!-- Pra onde devemos mandar o log -->
+	<Appenders>
+		<!-- Apresentamos no console da IDE usando o system_out, mas também podemos mandar para arquivos ou banco. -->
+		<Console name="Console" target="SYSTEM_OUT">
+			<!-- Formatamos a sainda do log -->
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{36}: %msg%n" />
+		</Console>
+	</Appenders>
+
+	<Loggers>
+		<Logger name="com.algaworks.brewer.controller" level="error" />
+		
+		<Root level="error">
+			<AppenderRef ref="Console" />
+		</Root>
+	</Loggers>
+</Configuration>
